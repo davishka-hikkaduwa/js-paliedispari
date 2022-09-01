@@ -29,6 +29,7 @@ function checkForPalindrome(word) {
 
 */
 
+/*
 const word = prompt('Enter a word: ');
 
 const isPalindroma = checkPalindrome(word);
@@ -83,7 +84,59 @@ function checkPalindroma(text) {
     return isEqual;
 }
 
+*/
+
+//PARI O DISPARI
+
+//chiedo di scegliere pari o dispari
+
+let userChoice = '';
+
+while (userChoice !== 'pari' && userChoice !== 'dispari') {
+    userChoice = prompt('Pari o Dispari?');
+    if (userChoice !== undefined) {
+        userChoice = userChoice.toLowerCase();
+        console.log(userChoice);
+    }
+}
+
+// const userChoice = prompt('Scegli Pari o Dispar: ');
+
+//chiedo un numero tra 1 e 5
+
+let number = 0;
+
+while (isNaN(number) || number < 1 || number > 5) {
+    number = parseInt(prompt('Dammi un numero tra 1 e 5: '));
+    console.log(number);
+}
 
 
+//generiamo un numero random
+
+const numberPC = getRandomNumber(1, 5);
+
+const sum = number + numberPC;
+
+const pariODispari = isOddOrEven(sum) ? 'pari' : 'dispari';
+
+if (userChoice === pariODispari) {
+    console.log('Hai vinto!');
+} else {
+    console.log('Hai perso!');
+}
+
+
+function getRandomNumber(min, max) {
+    const range = max - min + 1;
+
+    const random = Math.floor(Math.random() * range) + min;
+
+    return random;
+}
+
+function isOddOrEven(numberToCheck) {
+    return (numberToCheck % 2 === 0)
+}
 
 
